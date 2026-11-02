@@ -1,0 +1,15 @@
+# Optional: a ready-made Postgres so you don't have to install it.  docker compose up -d
+services:
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: campusgigs
+    ports:
+      - "5432:5432"
+    volumes:
+      - campusgigs_pgdata:/var/lib/postgresql/data
+volumes:
+  campusgigs_pgdata:
